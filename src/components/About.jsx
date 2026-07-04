@@ -1,51 +1,49 @@
 import React from 'react';
-import stackImage from '../assets/about/yusuf-avatar.png';
+import stackImage from '../assets/about/anurag-avatar.png';
 import { aboutContent } from '../data/portfolioData';
 
 // Tech stack SVG icons rendered inline for crisp rendering
-const JavaIcon = () => (
+const PythonIcon = () => (
   <div className="flex flex-col items-center gap-2">
-    <svg className="w-16 h-16 md:w-20 md:h-20" viewBox="0 0 128 128">
-      <path fill="#EA2D2E" d="M47.617 98.12c-19.192 5.362 11.677 16.439 36.115 5.969-4.003-1.556-6.874-3.391-6.874-3.391-10.897 5.163-31.934 2.759-25.932-2.097 4.501-3.631 0 0-3.309-.481zM65.856 86.36c-11.756 6.392-26.996 7.086-18.907 1.186 0 0-7.915 5.163-16.747 9.202 0 0-2.31 2.259 8.003 2.981 17.168 1.199 43.879-.749 45.026-8.065 0 0 1.243-3.178-17.375-5.304z"/>
-      <path fill="#EA2D2E" d="M83.528 71.122s5.58 5.784-6.154 10.372c-22.342 8.725-46.496.666-29.911-6.023 6.238-2.515 9.738-2.728 9.738-2.728s-3.397-2.4-11.715 2.103c-24.692 13.36 11.12 19.441 39.654 8.366 5.363-2.077 8.162-5.965 8.162-5.965-.001.001-9.774-6.125-9.774-6.125zM91.625 96.106c-.198.395-.461.781-.791 1.159 0 0 13.189-3.404 8.545-11.964-4.591-8.454-8.145-12.625 10.927-27.179 0 0-29.855 7.447-18.681 37.984z"/>
-      <path fill="#EA2D2E" d="M76.203 0s11.752 11.752-11.146 29.835c-18.359 14.499-4.187 22.754-.005 32.198-10.7-9.662-18.555-18.159-13.29-26.074C59.003 24.494 80.823 18.793 76.203 0zM66.414 113.085c21.023 1.345 53.358-.745 54.156-10.672 0 0-1.473 3.777-17.441 6.776-18.02 3.384-40.215 2.988-53.367.819 0 .001 2.695 2.228 16.652 3.077z"/>
-    </svg>
-    <span className="text-xs font-bold text-white/70 uppercase tracking-wider">Java</span>
+    <div className="w-16 h-16 md:w-20 md:h-20 bg-white/15 border border-white/25 rounded-2xl flex items-center justify-center shadow-2xl backdrop-blur-md hover:bg-white/20 transition-all duration-300">
+      <svg className="w-10 h-10 md:w-12 md:h-12" viewBox="0 0 24 24" fill="none">
+        <path d="M12 2C9.24 2 7 4.24 7 7V10H12V11H7C4.24 11 2 13.24 2 16C2 18.76 4.24 21 7 21H10V18C10 15.24 12.24 13 15 13H20V12H15C12.24 12 10 9.76 10 7C10 4.24 12.24 2 15 2H12Z" fill="#3776AB"/>
+        <path d="M12 22C14.76 22 17 19.76 17 17V14H12V13H17C19.76 13 22 15.24 22 18C22 20.76 19.76 22 17 22H14V19C14 16.24 11.76 14 9 14H4V15H9C11.76 15 14 17.24 14 20C14 22.76 11.76 22 9 22H12Z" fill="#FFE052"/>
+      </svg>
+    </div>
+    <span className="text-xs font-bold text-white/70 uppercase tracking-wider">Python</span>
   </div>
 );
 
-const SpringBootIcon = () => (
+const SqlIcon = () => (
   <div className="flex flex-col items-center gap-2">
-    <svg className="w-16 h-16 md:w-20 md:h-20" viewBox="0 0 128 128">
-      <path fill="#6DB33F" d="M116.452 6.643a59.104 59.104 0 01-6.837 12.136A64.249 64.249 0 0064.205-.026C28.984-.026 0 28.958 0 64.179c0 35.22 28.984 64.205 64.205 64.205 35.221 0 64.179-28.985 64.179-64.205 0-10.632-2.624-20.672-7.26-29.508a59.03 59.03 0 01-4.672-8.028zm-53.478 99.75c-23.407 0-42.392-18.985-42.392-42.393 0-23.407 18.985-42.392 42.392-42.392 4.016 0 7.907.563 11.591 1.607l-4.756 8.229a34.498 34.498 0 00-6.835-.683c-19.152 0-34.673 15.521-34.673 34.673 0 19.153 15.521 34.674 34.673 34.674 12.322 0 23.146-6.443 29.29-16.146l7.621 4.397c-7.966 12.614-22.043 20.984-37.911 20.034z"/>
-      <path fill="#6DB33F" d="M96.118 56.392l-32.22 18.604-8.816-15.273 32.221-18.604z"/>
-    </svg>
-    <span className="text-xs font-bold text-white/70 uppercase tracking-wider">Spring Boot</span>
+    <div className="w-16 h-16 md:w-20 md:h-20 bg-white/15 border border-white/25 rounded-2xl flex items-center justify-center shadow-2xl backdrop-blur-md hover:bg-white/20 transition-all duration-300">
+      <svg className="w-10 h-10 md:w-12 md:h-12" viewBox="0 0 24 24" fill="none" stroke="#0052ff" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+        <ellipse cx="12" cy="5" rx="9" ry="3" fill="#00a2ff" fillOpacity="0.2"/>
+        <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/>
+        <path d="M3 12c0 1.66 4 3 9 3s9-1.34 9-3"/>
+      </svg>
+    </div>
+    <span className="text-xs font-bold text-white/70 uppercase tracking-wider">SQL</span>
   </div>
 );
 
-const MernIcon = () => (
+const PowerBiIcon = () => (
   <div className="flex flex-col items-center gap-2">
-    <svg className="w-16 h-16 md:w-20 md:h-20" viewBox="0 0 128 128">
-      {/* Central React Atom */}
-      <g stroke="#00d8ff" strokeWidth="4.5" fill="none" transform="translate(10, 10)">
-        <ellipse cx="54" cy="54" rx="16" ry="46" transform="rotate(30 54 54)" />
-        <ellipse cx="54" cy="54" rx="16" ry="46" transform="rotate(90 54 54)" />
-        <ellipse cx="54" cy="54" rx="16" ry="46" transform="rotate(150 54 54)" />
-        <circle cx="54" cy="54" r="7" fill="#00d8ff" />
-      </g>
-      {/* MongoDB Leaf overlap overlay in bottom left */}
-      <path fill="#439934" d="M36 84c-3-6-4-15 0-22 3 7 9 10 10 15 2 1.5 1 3-2 5l-8 2zm4-25c2 4 4 11 0 16-1-5-6-8-7-12-2-1-1-3 2-4l5 0z" opacity="0.9" />
-      {/* Node.js Hexagon in top right */}
-      <path fill="#339933" d="M98 32l-12-7-12 7v14l12 7 12-7V32zm-12 1.5l8 4.6v9.3l-8 4.6-8-4.6v-9.3l8-4.6z" opacity="0.9" />
-    </svg>
-    <span className="text-xs font-bold text-white/70 uppercase tracking-wider">MERN Stack</span>
+    <div className="w-16 h-16 md:w-20 md:h-20 bg-white/15 border border-white/25 rounded-2xl flex items-center justify-center shadow-2xl backdrop-blur-md hover:bg-white/20 transition-all duration-300">
+      <svg className="w-10 h-10 md:w-12 md:h-12" viewBox="0 0 24 24" fill="none">
+        <rect x="3" y="13" width="4.5" height="7" rx="1" fill="#E6AD00"/>
+        <rect x="9.75" y="8" width="4.5" height="12" rx="1" fill="#F2C811"/>
+        <rect x="16.5" y="3" width="4.5" height="17" rx="1" fill="#FFE052"/>
+      </svg>
+    </div>
+    <span className="text-xs font-bold text-white/70 uppercase tracking-wider">Power BI</span>
   </div>
 );
 
 const About = () => {
   return (
-    <section id="about" className="bg-[#ff2a2a] pt-20 pb-40 px-6 md:px-12 w-full relative overflow-hidden font-sans">
+    <section id="about" className="bg-[#00a2ff] pt-20 pb-40 px-6 md:px-12 w-full relative overflow-hidden font-sans">
       <div className="max-w-6xl mx-auto flex flex-col md:flex-row gap-16 items-start">
         
         {/* Left Side: ID Badge and Skills */}
@@ -67,7 +65,7 @@ const About = () => {
               <div className="w-full aspect-[3/4] overflow-hidden rounded-xl bg-gray-800 border-2 border-transparent">
                 <img 
                   src={stackImage} 
-                  alt="Md Yusuf — Full Stack & Java Developer" 
+                  alt="Anurag Tiwari — Full Stack Web Developer" 
                   className="w-full h-full object-cover object-top"
                 />
               </div>
@@ -88,13 +86,13 @@ const About = () => {
           {/* Horizontal Skills Row */}
           <div className="flex items-center gap-10 mt-8">
             <div data-aos="zoom-in" data-aos-delay="300" className="hover:scale-110 transition-transform duration-300 cursor-pointer drop-shadow-2xl">
-              <JavaIcon />
+              <PythonIcon />
             </div>
             <div data-aos="zoom-in" data-aos-delay="450" className="hover:scale-110 transition-transform duration-300 cursor-pointer drop-shadow-2xl">
-              <SpringBootIcon />
+              <SqlIcon />
             </div>
             <div data-aos="zoom-in" data-aos-delay="600" className="hover:scale-110 transition-transform duration-300 cursor-pointer drop-shadow-2xl">
-              <MernIcon />
+              <PowerBiIcon />
             </div>
           </div>
 

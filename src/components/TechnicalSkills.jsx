@@ -1,44 +1,80 @@
-import React from 'react';
+import React, { useEffect, useState, useRef } from 'react';
+import { motion, useInView, animate } from 'framer-motion';
 import { technicalSkills } from '../data/portfolioData';
+
+const Counter = ({ value }) => {
+  const [count, setCount] = useState(0);
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, margin: "-50px" });
+
+  useEffect(() => {
+    if (isInView) {
+      const controls = animate(0, value, {
+        duration: 1.5,
+        ease: "easeOut",
+        onUpdate: (latest) => setCount(Math.round(latest)),
+      });
+      return () => controls.stop();
+    }
+  }, [isInView, value]);
+
+  return <span ref={ref}>{count}%</span>;
+};
 
 const SkillProgress = ({ name, level }) => (
   <div className="mb-4">
     <div className="flex justify-between items-center mb-1">
       <span className="text-white text-sm font-semibold tracking-wide">{name}</span>
-      <span className="text-red-400 text-xs font-bold font-mono">{level}%</span>
+      <span className="text-sky-400 text-xs font-bold font-mono">
+        <Counter value={level} />
+      </span>
     </div>
     <div className="w-full h-1.5 bg-white/5 rounded-full overflow-hidden border border-white/5">
-      <div 
-        className="h-full bg-gradient-to-r from-red-600 to-red-400 rounded-full transition-all duration-1000 ease-out"
-        style={{ width: `${level}%` }}
+      <motion.div 
+        initial={{ width: 0 }}
+        whileInView={{ width: `${level}%` }}
+        viewport={{ once: true, margin: "-50px" }}
+        transition={{ duration: 1.5, ease: "easeOut" }}
+        className="h-full bg-gradient-to-r from-blue-600 to-sky-400 rounded-full"
       />
     </div>
   </div>
 );
 
 const SkillCard = ({ category, index }) => (
-  <div 
-    data-aos="fade-up"
-    data-aos-delay={index * 100}
-    className="bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl p-6 hover:scale-[1.02] hover:border-red-500/30 hover:shadow-[0_20px_50px_rgba(255,42,42,0.1)] transition-all duration-500"
+  <motion.div 
+    initial={{ opacity: 0, y: 50 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    viewport={{ once: true, margin: "-50px" }}
+    transition={{ duration: 0.8, delay: index * 0.1, ease: [0.16, 1, 0.3, 1] }}
+    whileHover={{ y: -8, scale: 1.02 }}
+    className="bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl p-6 hover:border-sky-500/40 transition-colors duration-300 relative group overflow-hidden shadow-2xl flex flex-col justify-between"
   >
-    <h3 className="text-white text-lg font-black tracking-tight mb-6 pb-2 border-b border-white/10 uppercase">
-      {category.title}
-    </h3>
-    <div>
-      {category.skills.map((skill) => (
-        <SkillProgress key={skill.name} name={skill.name} level={skill.level} />
-      ))}
+    {/* Animated background glow on hover */}
+    <div className="absolute inset-0 bg-gradient-to-br from-blue-600/10 via-transparent to-sky-950/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
+    
+    {/* Glowing corner indicator */}
+    <div className="absolute top-0 right-0 w-24 h-24 bg-gradient-to-br from-red-500/20 to-transparent blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
+    
+    <div className="relative z-10 w-full">
+      <h3 className="text-white text-lg font-black tracking-tight mb-6 pb-2 border-b border-white/10 uppercase group-hover:text-sky-400 group-hover:border-sky-500/20 transition-colors duration-300">
+        {category.title}
+      </h3>
+      <div>
+        {category.skills.map((skill) => (
+          <SkillProgress key={skill.name} name={skill.name} level={skill.level} />
+        ))}
+      </div>
     </div>
-  </div>
+  </motion.div>
 );
 
 const TechnicalSkills = () => {
   return (
     <section id="skills" className="bg-[#0a0a0a] pt-24 pb-28 px-6 md:px-12 w-full relative overflow-hidden font-sans">
       {/* Background visual elements */}
-      <div className="absolute top-1/4 left-10 w-96 h-96 bg-red-600/10 rounded-full blur-[120px] pointer-events-none" />
-      <div className="absolute bottom-1/4 right-10 w-96 h-96 bg-red-500/10 rounded-full blur-[120px] pointer-events-none" />
+      <div className="absolute top-1/4 left-10 w-96 h-96 bg-blue-600/10 rounded-full blur-[120px] pointer-events-none" />
+      <div className="absolute bottom-1/4 right-10 w-96 h-96 bg-sky-500/10 rounded-full blur-[120px] pointer-events-none" />
 
       <div className="max-w-6xl mx-auto relative z-10">
         

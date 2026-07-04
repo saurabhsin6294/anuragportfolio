@@ -6,6 +6,7 @@ const Contact = () => {
   const ref = useRef(null);
   const formRef = useRef(null);
   const [status, setStatus] = useState('idle'); // idle, sending, success, error
+  const [errorMsg, setErrorMsg] = useState('');
 
   const { scrollYProgress } = useScroll({
     target: ref,
@@ -27,45 +28,75 @@ const Contact = () => {
     const email = form.querySelector('#email')?.value || '';
     const message = form.querySelector('#message')?.value || '';
 
-    // Validate inputs
-    if (!firstName.trim() || !email.trim() || !message.trim()) {
+    // 1. Client-Side Validation Checks
+    if (!firstName.trim()) {
+      setErrorMsg("First Name is required.");
       setStatus('error');
-      setTimeout(() => setStatus('idle'), 3000);
+      setTimeout(() => setStatus('idle'), 4000);
       return;
     }
 
-    // Check if EmailJS is configured (checking both placeholder values and falsy states)
-    const isConfigured = 
-      emailjsConfig.serviceId && 
-      emailjsConfig.serviceId !== 'YOUR_EMAILJS_SERVICE_ID' &&
-      emailjsConfig.templateId && 
-      emailjsConfig.templateId !== 'YOUR_EMAILJS_TEMPLATE_ID' &&
-      emailjsConfig.publicKey && 
-      emailjsConfig.publicKey !== 'YOUR_EMAILJS_PUBLIC_KEY';
-
-    if (!isConfigured) {
-      // EmailJS not configured — fallback to prefilled mailto
-      const mailtoLink = `mailto:${personalInfo.emails.primary}?subject=Portfolio Contact from ${firstName} ${lastName}&body=${encodeURIComponent(`From: ${firstName} ${lastName}\nEmail: ${email}\n\n${message}`)}`;
-      window.open(mailtoLink, '_blank');
-      setStatus('success');
-      formRef.current.reset();
-      setTimeout(() => setStatus('idle'), 3000);
+    if (!email.trim()) {
+      setErrorMsg("Email Address is required.");
+      setStatus('error');
+      setTimeout(() => setStatus('idle'), 4000);
       return;
     }
 
-    // EmailJS integration
+    // Email regex validation
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email.trim())) {
+      setErrorMsg("Please enter a valid email address.");
+      setStatus('error');
+      setTimeout(() => setStatus('idle'), 4000);
+      return;
+    }
+
+    if (!message.trim() || message.trim().length < 10) {
+      setErrorMsg("Message must be at least 10 characters long.");
+      setStatus('error');
+      setTimeout(() => setStatus('idle'), 4000);
+      return;
+    }
+
+    // Permission checkbox validation
+    const permissionCheckbox = form.querySelector('#permission');
+    if (permissionCheckbox && !permissionCheckbox.checked) {
+      setErrorMsg("Please check the box giving permission to contact you.");
+      setStatus('error');
+      setTimeout(() => setStatus('idle'), 4000);
+      return;
+    }
+
+    // 2. Fetch POST call to secure SMTP function
     try {
-      const emailjs = await import('@emailjs/browser');
-      await emailjs.sendForm(
-        emailjsConfig.serviceId,
-        emailjsConfig.templateId,
-        formRef.current,
-        emailjsConfig.publicKey
-      );
-      setStatus('success');
-      formRef.current.reset();
+      const response = await fetch('/api/send-email', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          first_name: firstName.trim(),
+          last_name: lastName.trim(),
+          user_email: email.trim(),
+          message: message.trim(),
+        }),
+      });
+
+      const data = await response.json();
+
+      if (response.ok && data.success) {
+        setStatus('success');
+        setErrorMsg('');
+        formRef.current.reset();
+      } else {
+        console.error('SMTP Error:', data.error);
+        setErrorMsg(data.error || "Failed to send message. Try again.");
+        setStatus('error');
+      }
     } catch (error) {
-      console.error('EmailJS Error:', error);
+      console.error('Network Error:', error);
+      setErrorMsg("Network error. Please try again.");
       setStatus('error');
     }
 
@@ -91,7 +122,7 @@ const Contact = () => {
       <div className="relative z-10 w-full flex justify-end items-end">
         <div 
           data-aos="fade-up"
-          className="bg-[#ff2a2a] w-full md:w-[85%] lg:w-[75%] p-8 md:p-16 text-white flex flex-col justify-between"
+          className="bg-[#00a2ff] w-full md:w-[85%] lg:w-[75%] p-8 md:p-16 text-white flex flex-col justify-between"
         >
           <div className="flex flex-col sm:flex-row justify-between items-start gap-8 mb-12">
             <div className="text-xs font-bold tracking-[0.2em] uppercase opacity-90">
@@ -102,7 +133,7 @@ const Contact = () => {
               href={socialLinks.instagram} 
               target="_blank" 
               rel="noopener noreferrer" 
-              className="flex items-center gap-2 text-xs font-black uppercase tracking-wider bg-white/10 hover:bg-white hover:text-red-600 border border-white/20 px-4 py-2 rounded-full transition-all duration-300"
+              className="flex items-center gap-2 text-xs font-black uppercase tracking-wider bg-white/10 hover:bg-white hover:text-blue-600 border border-white/20 px-4 py-2 rounded-full transition-all duration-300"
             >
               <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z" /></svg>
               DM on Instagram
@@ -178,10 +209,23 @@ const Contact = () => {
                 <p className="leading-relaxed max-w-[400px]">
                   Your message will be sent directly to my inbox. I typically respond within 24-48 hours.
                 </p>
-                <div className="flex flex-col sm:flex-row sm:justify-between sm:items-end gap-6">
-                  <p className="max-w-[250px] leading-relaxed">
-                    For urgent inquiries, reach me at <a href={`mailto:${personalInfo.emails.primary}`} className="underline hover:text-white transition-colors">{personalInfo.emails.primary}</a>
-                  </p>
+                
+                <div className="flex flex-col gap-4 w-full">
+                  {status === 'error' && errorMsg && (
+                    <motion.div 
+                      initial={{ opacity: 0, y: 10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      className="bg-black/30 border border-white/20 text-sky-200 px-4 py-2.5 rounded-xl font-bold text-xs shadow-md flex items-center gap-2.5 w-full"
+                    >
+                      <span className="w-2 h-2 rounded-full bg-[#00a2ff] animate-pulse" />
+                      {errorMsg}
+                    </motion.div>
+                  )}
+                  
+                  <div className="flex flex-col sm:flex-row sm:justify-between sm:items-end gap-6">
+                    <p className="max-w-[250px] leading-relaxed">
+                      For urgent inquiries, reach me at <a href={`mailto:${personalInfo.emails.primary}`} className="underline hover:text-white transition-colors">{personalInfo.emails.primary}</a>
+                    </p>
                   
                   <button 
                     type="submit" 
@@ -192,8 +236,8 @@ const Contact = () => {
                         : status === 'success'
                         ? 'bg-green-600 border-green-500 text-white shadow-[0_0_20px_rgba(22,163,74,0.4)]'
                         : status === 'error'
-                        ? 'bg-red-800 border-red-700 text-white'
-                        : 'hover:bg-white hover:text-[#ff2a2a]'
+                        ? 'bg-blue-800 border-blue-700 text-white'
+                        : 'hover:bg-white hover:text-[#00a2ff]'
                     }`}
                   >
                     {status === 'sending' ? (
@@ -223,7 +267,8 @@ const Contact = () => {
                 </div>
               </div>
             </div>
-          </form>
+          </div>
+        </form>
 
         </div>
       </div>

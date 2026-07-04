@@ -1,296 +1,204 @@
 // ============================================================
-// portfolioData.js — Centralized configuration for Md Yusuf's Portfolio
+// portfolioData.js — Centralized configuration for Anurag Tiwari's Portfolio
 // All external links, personal info, and content in one place.
-// Update this file to change any content across the entire site.
 // ============================================================
 
 export const personalInfo = {
-  name: "Md Yusuf",
-  firstName: "Md Yusuf",
-  brandName: "Md Yusuf",
-  title: "Full Stack & Java Developer",
-  location: "Bhopal, India",
-  phone: "+91 99396-08743",
+  name: "Anurag Tiwari",
+  firstName: "Anurag",
+  brandName: "Anurag",
+  title: "Data Analyst & Data Scientist",
+  location: "Lucknow, India",
+  phone: "+91 81126-02692",
   emails: {
-    primary: "mdyusufcse096@iesuniversity.ac.in",
-    secondary: "yusuf.rgpv@gmail.com",
+    primary: "anuragtiwariii.work@gmail.com",
+    secondary: "anuragtiwariii.work@gmail.com",
   },
   summary:
-    "Aspiring software engineer and motivated B.Tech Computer Science student with solid skills in Java, Spring Boot, React, and Python. Passionate about building scalable full-stack applications with clean architecture and modern tech stacks.",
-  resumeUrl: "/Md_Yusuf_Resume_2026.pdf",
+    "Fresher Data Analyst with a B.Com background and hands-on training from Console Flare Data Science Bootcamp. Skilled in Python (pandas, NumPy), SQL, Excel, and Power BI. Enthusiastic about analyzing data and supporting data-driven decision-making.",
+  resumeUrl: "/Anurag_Tiwari_Resume.pdf",
 };
 
 export const socialLinks = {
-  github: "https://github.com/mdyusuf0",
-  linkedin: "https://linkedin.com/in/mdyusuf0",
-  instagram: "https://instagram.com/heyyusuffff",
+  github: "https://github.com/saurabhsin6294/spsportfolio", // Fallback placeholder
+  linkedin: "https://www.linkedin.com/in/saurabh-pratap-singh-4a9968253", // Fallback placeholder
+  instagram: "#",
 };
 
 export const heroContent = {
-  greeting: "Hi, I'm Md Yusuf",
-  titleHighlight: "Full Stack & Java Developer",
+  greeting: "Hi, I'm Anurag Tiwari",
+  titleHighlight: "Data Analyst & Scientist",
   subtitle:
-    "I build fast, scalable applications using Java, Spring Boot, MERN Stack, and Python.",
+    "I extract actionable insights from complex datasets using Python, SQL, Power BI, and Tableau to drive business growth.",
   ctaPrimary: { text: "View My Work", href: "#projects" },
   ctaSecondary: {
     text: "Contact Me",
-    href: "mailto:mdyusufcse096@iesuniversity.ac.in?subject=Hiring Inquiry – Portfolio&body=Hello Md Yusuf,%0D%0A%0D%0AI came across your portfolio and would like to discuss an opportunity with you.%0D%0A%0D%0ALooking forward to hearing from you.%0D%0ABest Regards,",
+    href: "mailto:anuragtiwariii.work@gmail.com?subject=Hiring Inquiry – Portfolio&body=Hello Anurag,%0D%0A%0D%0AI came across your portfolio and would like to discuss an opportunity with you.%0D%0A%0D%0ALooking forward to hearing from you.%0D%0ABest Regards,",
   },
-  ctaResume: { text: "Download Resume", href: "/Md_Yusuf_Resume_2026.pdf" },
+  ctaResume: { text: "Download Resume", href: "/Anurag_Tiwari_Resume.pdf" },
 };
 
 export const aboutContent = {
   heading: "Hello!",
-  bio: `Hi, my name is <span class="text-black text-xl font-black mx-1 tracking-wide uppercase">Md Yusuf</span>, an aspiring software engineer based in Bhopal, India, dedicated to crafting clean, functional, and highly scalable full-stack applications.`,
-  techStack: ["Java", "Spring Boot", "MERN Stack"],
+  bio: `Hi, my name is <span class="text-black text-xl font-black mx-1 tracking-wide uppercase">Anurag Tiwari</span>, a Fresher Data Analyst based in Lucknow, India. Leveraging a B.Com background and bootcamp training from Console Flare, I bridge the gap between complex raw data and strategic business decision-making.`,
+  techStack: ["Python", "SQL", "Power BI", "Tableau"],
 };
 
 export const skillsContent = {
-  badge: "My Process",
-  heading: "Here's how I turn ideas into real-world applications",
+  badge: "My Methodology",
+  heading: "Turning Raw Data Into Strategic Business Decisions",
   description:
-    "I follow a structured, creative, and highly technical approach to turn ideas into robust full-stack applications.",
+    "I follow a structured pipeline of data collection, wrangling, exploratory analysis, and visual dashboard design.",
   cards: [
     {
       number: "01",
-      title: "Research",
-      text: "I start by understanding goals, user requirements, and technical constraints to lay a rock-solid foundation for the project.",
+      title: "Data Extraction",
+      text: "Gathering structural and unstructured datasets from SQL databases, CSVs, and Excel sheets safely.",
     },
     {
       number: "02",
-      title: "Design",
-      text: "Crafting clean architecture, intuitive interfaces, and pixel-perfect wireframes that guarantee an engaging and accessible user experience.",
+      title: "Data Wrangling",
+      text: "Cleaning and processing datasets using Python (pandas, NumPy) to handle null values, duplicates, and data modeling.",
     },
     {
       number: "03",
-      title: "Develop",
-      text: "Building scalable backends and responsive frontends using modern tech stacks and best practices.",
+      title: "Exploratory Analysis",
+      text: "Performing descriptive statistics and logical SQL queries to discover sales trends, customer behavior, and market patterns.",
     },
     {
       number: "04",
-      title: "Deploy",
-      text: "Rigorous testing, performance optimization, and seamless deployment to cloud infrastructure, followed by ongoing support.",
+      title: "Visualization",
+      text: "Building interactive, real-time dashboards in Power BI and Tableau to deliver clear reports for executive decision-makers.",
     },
   ],
-  endText: "Ready to ship!",
+  endText: "Ready to analyze!",
 };
 
-// Brand New Technical Skills Data
+// Brand New Technical Skills Data for Data Analyst
 export const technicalSkills = {
   categories: [
     {
-      title: "Programming Languages",
+      title: "Programming & Scripts",
       skills: [
-        { name: "Java", level: 90 },
-        { name: "C++", level: 85 },
-        { name: "Python", level: 75 }
+        { name: "Python (pandas, NumPy)", level: 85 },
+        { name: "SQL (Queries & Joins)", level: 82 },
+        { name: "Python Basic Coding", level: 75 }
       ]
     },
     {
-      title: "Full Stack",
+      title: "BI & Visualization Tools",
       skills: [
-        { name: "MERN Stack", level: 90 },
-        { name: "HTML", level: 95 },
-        { name: "CSS", level: 90 },
-        { name: "JavaScript", level: 92 }
+        { name: "Power BI", level: 88 },
+        { name: "Tableau", level: 80 },
+        { name: "MS Excel (Pivot, VLOOKUP)", level: 90 }
       ]
     },
     {
-      title: "Backend",
+      title: "Data Analytics Concepts",
       skills: [
-        { name: "Spring Boot", level: 88 },
-        { name: "FastAPI", level: 75 },
-        { name: "REST APIs", level: 90 }
+        { name: "Data Cleaning & Wrangling", level: 85 },
+        { name: "Exploratory Data Analysis", level: 82 },
+        { name: "Data Modeling", level: 78 },
+        { name: "Sales Trend Analysis", level: 80 }
       ]
     },
     {
-      title: "Databases",
+      title: "Business & Commerce",
       skills: [
-        { name: "MongoDB", level: 88 },
-        { name: "MySQL", level: 85 },
-        { name: "Firebase", level: 80 }
-      ]
-    },
-    {
-      title: "Tools & Automation",
-      skills: [
-        { name: "Git & GitHub", level: 90 },
-        { name: "VS Code", level: 95 },
-        { name: "Postman", level: 88 },
-        { name: "n8n", level: 82 },
-        { name: "MongoDB Compass", level: 85 },
-        { name: "Antigravity", level: 80 },
-        { name: "Codex", level: 75 }
-      ]
-    },
-    {
-      title: "Computer Science Concepts",
-      skills: [
-        { name: "Data Structures", level: 88 },
-        { name: "Algorithms", level: 85 },
-        { name: "DBMS", level: 86 },
-        { name: "OOP", level: 90 },
-        { name: "Software Engineering", level: 84 }
+        { name: "Financial Tracking", level: 85 },
+        { name: "Marketing Strategy Insights", level: 80 },
+        { name: "Descriptive Statistics", level: 75 }
       ]
     }
   ]
 };
 
-// Brand New Content Creation Data
-export const contentCreation = {
-  badge: "Cinematic Content",
-  heading: "Creative Direction & Cinematic Edits",
-  description: "Beyond coding, I craft visual stories with premium editing, color grading, and creative pacing.",
-  categories: [
-    {
-      title: "Cinematic Reels",
-      description: "Visual stories crafted with cinematic lighting, premium color grading, and high-impact sound design.",
-      stats: "50+ Reels Created",
-      icon: "🎥"
-    },
-    {
-      title: "Travel Videos",
-      description: "Immersive travel vlogs and aesthetic edits capturing cultures, landscapes, and visual rhythms.",
-      stats: "15+ Countries/Cities",
-      icon: "✈️"
-    },
-    {
-      title: "Educational Reels",
-      description: "Fast-paced tech tutorials and educational content designed to simplify coding and software engineering.",
-      stats: "100k+ Views",
-      icon: "🧠"
-    },
-    {
-      title: "My Own Creative Edits",
-      description: "Experimental transitions, 3D overlays, and trendsetting visual effects that push creative bounds.",
-      stats: "Personal Projects",
-      icon: "⚡"
-    }
-  ]
-};
-
-// Brand New Leadership Data
+// Brand New Leadership / Bootcamps Data
 export const leadershipList = [
   {
-    title: "IEEE Madhya Pradesh Section (Social Media Team)",
-    description: "Managed and coordinated digital content, driving audience engagement and designing interactive visual campaigns for tech events.",
-    role: "Social Media Coordinator",
-    badge: "Volunteer"
-  },
-  {
-    title: "Team Coordinator – Go-Kart International Racing 2K25",
-    description: "Led multi-disciplinary teams in project management, budget control, and logistics coordination for a high-profile international racing event.",
-    role: "Team Coordinator",
-    badge: "Leadership"
-  },
-  {
-    title: "5-Day MOE IDE Bootcamp, Roorkee",
-    description: "Participated in an intensive Innovation, Design, and Entrepreneurship Bootcamp organized by the Ministry of Education at IIT Roorkee.",
+    title: "Console Flare Data Science Bootcamp",
+    description: "Successfully completed intensive hands-on bootcamp training covering Data Wrangling, SQL database queries, and BI visualization pipelines.",
     role: "Bootcamp Graduate",
-    badge: "Innovation"
+    badge: "Bootcamp"
   },
   {
-    title: "Hosted INFORIA Tech Summit Hackathon",
-    description: "Organized and hosted the flagship hackathon, managing registrations, mentoring participant teams, and coordinating judge evaluations.",
-    role: "Hackathon Organizer",
-    badge: "Co-Curricular"
+    title: "Marketing Strategy Project - Brindavan Bottlers",
+    description: "Assisted senior marketing teams in analyzing regional distributor sales and designing promotional campaigns based on data insights.",
+    role: "Strategic Analyst Support",
+    badge: "Marketing"
   },
   {
-    title: "Event Coordinator & Anchoring – INFORIA 2K25",
-    description: "Coordinated technical events and served as the main stage anchor, speaking in front of large crowds and managing the summit flow.",
-    role: "Stage Anchor & Coordinator",
-    badge: "Public Speaking"
+    title: "B.Com Graduation Studies - Goel Institute",
+    description: "Studied business accounting, statistics, audit procedures, and retail commerce, forming a strong financial and commercial foundation.",
+    role: "Business Studies",
+    badge: "Academic"
   }
 ];
 
-// Brand New Internships Data
+// Brand New Internships / Experience Data
 export const internshipsList = [
   {
-    organization: "Netlink, Bhopal",
-    role: "Data Analytics & BI Tools Intern",
-    duration: "June 2025 - August 2025",
-    skills: ["Data Analytics", "Business Intelligence", "Dashboard Design", "Data Modeling"],
-    tech: ["Lumenore", "MySQL", "Excel", "BI Tools"]
-  },
-  {
-    organization: "Canva",
-    role: "Visual Content Creator & Designer",
-    duration: "May 2024 - June 2024",
-    skills: ["Visual Designing", "Poster Design", "Team Branding", "Asset Creation"],
-    tech: ["Canva Pro", "Figma", "Canva Design Suite"]
-  },
-  {
-    organization: "CollegeTips.in",
-    role: "Web Development Intern",
-    duration: "1 Month (Offline)",
-    skills: ["Frontend Development", "Responsive Layouts", "API Testing", "Web Performance"],
-    tech: ["HTML5", "CSS3", "JavaScript", "Bootstrap"]
+    organization: "Brindavan Bottlers Pvt. Ltd.",
+    role: "Marketing Intern & Data Analyst",
+    duration: "June 2024 – August 2024",
+    skills: [
+      "Analyzed beverage sales data to identify trends and regional distributor insights.",
+      "Developed and implemented interactive data visualization dashboards using Power BI and Tableau.",
+      "Assisted in developing target marketing strategies and campaigns based on data-driven insights."
+    ],
+    tech: ["Power BI", "Tableau", "Excel", "SQL", "Sales Analysis"]
   }
 ];
 
 // Brand New Soft Skills Data
 export const softSkillsList = [
-  { name: "Leadership", icon: "👑", desc: "Guiding teams, managing tasks, and driving project completion with shared vision." },
-  { name: "Public Speaking", icon: "🎤", desc: "Confident stage presence, anchoring summits, and delivering articulate technical ideas." },
-  { name: "Team Collaboration", icon: "🤝", desc: "Collaborating across fields, building racing carts, and engineering code in sync." },
-  { name: "Communication", icon: "💬", desc: "Clear, concise, and structured interactions in both business and technical contexts." },
-  { name: "Problem Solving", icon: "🧩", desc: "Breaking down complex engineering tasks into clean, logical, and modular pieces." },
-  { name: "Adaptability", icon: "🌟", desc: "Quick to pick up new frameworks like FastAPI, Spring Boot, or automation tools like n8n." },
-  { name: "Creativity", icon: "🎨", desc: "Blending cinematic aesthetics with software structure to build premium experiences." },
-  { name: "Time Management", icon: "⏰", desc: "Balancing B.Tech studies, event hosting, and developing robust software platforms." }
+  { name: "Team Collaboration", icon: "🤝", desc: "Working seamlessly with cross-functional marketing and technical teams." },
+  { name: "Effective Communication", icon: "💬", desc: "Translating technical data metrics into simple, actionable business speak." },
+  { name: "Problem-Solving", icon: "🧩", desc: "Deconstructing ambiguous database queries into clean analytical steps." },
+  { name: "Time Management", icon: "⏰", desc: "Managing multiple project dashboards and research targets efficiently." },
+  { name: "Adaptability", icon: "🌟", desc: "Quick to pick up new analytics libraries, statistical methodologies, and BI features." }
 ];
 
 export const projects = [
   {
-    id: "foodmesh",
+    id: "sales-dashboard",
     number: "01",
-    badge: "🚀 Flagship Project",
-    title: "FoodMesh",
+    badge: "🚀 Brindavan Bottlers",
+    title: "Sales Performance & Trend Dashboard",
     description:
-      "FoodMesh — An enterprise-grade multi-tenant restaurant management and food ordering SaaS platform inspired by UrbanPiper. It enables restaurants to manage multiple outlets, menus, inventory, customers, staff, and orders through a scalable architecture with secure authentication, role-based access control, and real-time operations. Built with React, Next.js, NestJS, PostgreSQL, Redis, Kafka, Elasticsearch, Docker, Kubernetes, and AWS.",
-    techTags: [
-      "React",
-      "Next.js",
-      "NestJS",
-      "PostgreSQL",
-      "Redis",
-      "Kafka",
-      "Elasticsearch",
-      "Docker",
-      "Kubernetes",
-      "AWS",
-    ],
+      "Designed and developed a comprehensive Power BI and Tableau dashboard analyzing historical beverage sales data for Brindavan Bottlers Pvt. Ltd. It visualizes sales distribution across geographic regions, highlights top-performing products, and details seasonal trends to assist marketing campaigns.",
+    techTags: ["Power BI", "Tableau", "MS Excel", "Sales Trends"],
     links: {
-      github: "https://github.com/ersamirsingh/UrbanPiper",
+      github: "#",
       demo: null,
     },
     isFlagship: true,
   },
   {
-    id: "karigar",
+    id: "feedback-analysis",
     number: "02",
-    badge: null,
-    title: "Karigar",
+    badge: "Python Analysis",
+    title: "Customer Reviews Sentiment Pipeline",
     description:
-      "A platform connecting local skilled workers with customers, featuring real-time search, worker profiles, and booking management with full database integration.",
-    techTags: ["React", "Node.js", "MongoDB", "Express", "REST API"],
+      "Created a data analysis pipeline in Python using pandas and NumPy to parse, clean, and analyze customer feedback datasets. Generates descriptive statistics and visual graphs of satisfaction drivers to help businesses target customer pain points.",
+    techTags: ["Python", "pandas", "NumPy", "Jupyter Notebook", "SQL"],
     links: {
-      github: "https://github.com/mdyusuf0/Karigar",
-      frontendDemo: "https://karigar-frontend.onrender.com",
-      backendApi: "https://karigar-zny2.onrender.com",
+      github: "#",
+      demo: null,
     },
     isFlagship: false,
   },
   {
-    id: "sentiment-analysis",
+    id: "financial-analysis",
     number: "03",
-    badge: null,
-    title: "AI-Powered Sentiment Analysis",
+    badge: "SQL & Excel",
+    title: "Business Financial Margin Tracker",
     description:
-      "A full-stack web application that analyzes citizen feedback using Artificial Intelligence to classify sentiments as positive, negative, or neutral. Features a responsive React frontend, a Node.js backend, MongoDB for data storage, and n8n automation for workflow orchestration — enabling real-time insights and efficient feedback management.",
-    techTags: ["React", "Node.js", "MongoDB", "n8n", "AI/ML", "REST API"],
+      "A B.Com case-study application designed in MS Excel and SQL to calculate monthly recurring revenue, operational expenses, and product profit margins, outputting clean database records and pivot analysis templates.",
+    techTags: ["MS Excel", "SQL", "Data Cleansing", "Pivot Tables"],
     links: {
-      github: "#", // Update when available
+      github: "#",
+      demo: null,
     },
     isFlagship: false,
   },
@@ -299,61 +207,48 @@ export const projects = [
 export const certificates = {
   featured: [
     {
-      name: "Oracle Cloud Infrastructure 2025",
-      issuer: "Oracle",
-      icon: "☁️",
-    },
-    {
-      name: "Programming in Java (94%)",
-      issuer: "NPTEL",
-      icon: "☕",
-    },
-    {
-      name: "C Programming & Assembly Language",
-      issuer: "NPTEL",
-      icon: "⚙️",
-    },
-    {
-      name: "Technology Job Simulation",
-      issuer: "Deloitte",
-      icon: "💼",
-    },
-    {
-      name: "Career Edge – IT Primer",
-      issuer: "TCS iON",
-      icon: "🎓",
-    },
-    {
-      name: "Fundamentals of BI & Analytics",
-      issuer: "Lumenore",
+      name: "Console Flare Data Science Bootcamp",
+      issuer: "Console Flare",
       icon: "📊",
     },
+    {
+      name: "Excel for Data Analysis",
+      issuer: "Console Flare",
+      icon: "📈",
+    },
+    {
+      name: "SQL Database Querying",
+      issuer: "Udemy",
+      icon: "🗄️",
+    },
+    {
+      name: "Power BI Dashboard Design",
+      issuer: "Console Flare",
+      icon: "📉",
+    }
   ],
-  viewAllUrl:
-    "https://drive.google.com/file/d/1ObdGWtVSx8SsfR4AcbCySSd9LFXcAs9f/view?usp=sharing",
+  viewAllUrl: "#",
 };
 
 export const education = {
-  degree: "B.Tech – Computer Science & Engineering",
-  institution: "IES College of Technology (RGPV)",
-  cgpa: "8.35",
-  graduation: "2027",
-  twelfth: "12th Science – 81%",
-  tenth: "10th CBSE – 70%",
+  degree: "B. Com – Bachelor of Commerce",
+  institution: "GOEL INSTITUTE OF TECHNOLOGY AND MANAGEMENT",
+  graduation: "2025",
+  twelfth: "Intermediate – Commerce (2022)",
+  tenth: "High School – CBSE (2020)",
 };
 
 export const footerContent = {
   taglines: [
-    "Software Engineering & Web Dev",
-    "Java · Spring Boot · React",
-    "Full Stack Applications",
+    "Data Analytics & Science",
+    "Python · SQL · Power BI · Excel",
+    "Data-Driven Decisions",
   ],
-  credential: "B.Tech CSE · CGPA 8.35",
-  copyright: `© ${new Date().getFullYear()} Md Yusuf | Built with React`,
+  credential: "B.Com Graduate · Console Flare Bootcamp",
+  copyright: `© ${new Date().getFullYear()} Anurag Tiwari | All Rights Reserved`,
 };
 
 // EmailJS Configuration
-// Will read directly from environment variables in Vite (starting with VITE_)
 export const emailjsConfig = {
   serviceId: import.meta.env.VITE_EMAILJS_SERVICE_ID || "YOUR_EMAILJS_SERVICE_ID",
   templateId: import.meta.env.VITE_EMAILJS_TEMPLATE_ID || "YOUR_EMAILJS_TEMPLATE_ID",

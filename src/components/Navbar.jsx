@@ -18,15 +18,22 @@ const Navbar = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const navLinks = ['Home', 'About', 'Skills', 'Projects', 'Contact'];
+  const navLinks = [
+    { label: 'Home', path: '/' },
+    { label: 'About', path: '/about' },
+    { label: 'Skills', path: '/#skills' },
+    { label: 'Experience', path: '/experience' },
+    { label: 'Projects', path: '/#projects' },
+    { label: 'Contact', path: '/contact' }
+  ];
 
-  const hireMeMailto = `mailto:mdyusufcse096@iesuniversity.ac.in?subject=Hiring Inquiry – Portfolio&body=Hello Md Yusuf,%0D%0A%0D%0AI came across your portfolio and would like to discuss an opportunity with you.%0D%0A%0D%0ALooking forward to hearing from you.%0D%0ABest Regards,`;
+  const hireMeMailto = `mailto:${personalInfo.emails.primary}?subject=Hiring Inquiry – Portfolio&body=Hello ${personalInfo.firstName},%0D%0A%0D%0AI came across your portfolio and would like to discuss an opportunity with you.%0D%0A%0D%0ALooking forward to hearing from you.%0D%0ABest Regards,`;
 
   return (
     <nav 
       className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
         isOpen 
-          ? 'bg-[#ff2a2a] py-4'
+          ? 'bg-[#00a2ff] py-4'
           : isScrolled 
             ? 'bg-transparent py-4' 
             : 'bg-transparent py-6'
@@ -37,7 +44,7 @@ const Navbar = () => {
         {/* Left Side: Logo/Name */}
         <div className="flex items-center">
           <a href="#" className="text-white text-2xl font-black tracking-tight whitespace-nowrap">
-            {personalInfo.brandName}<span className="text-red-500">.</span>
+            {personalInfo.brandName}<span className="text-sky-500">.</span>
           </a>
         </div>
 
@@ -45,13 +52,13 @@ const Navbar = () => {
         <div className="hidden md:flex space-x-8">
           {navLinks.map((link) => (
             <a 
-              key={link} 
-              href={`#${link.toLowerCase()}`}
+              key={link.label} 
+              href={link.path}
               className="text-white/80 hover:text-white font-medium relative group transition-colors duration-300"
             >
-              {link}
+              {link.label}
               {/* Smooth hover underline */}
-              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-red-500 transition-all duration-300 group-hover:w-full"></span>
+              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-sky-500 transition-all duration-300 group-hover:w-full"></span>
             </a>
           ))}
         </div>
@@ -86,25 +93,25 @@ const Navbar = () => {
       {/* Mobile Slide-Down Menu */}
       <div 
         className={`md:hidden absolute top-full left-0 w-full transition-all duration-300 overflow-hidden ${
-          isOpen ? 'max-h-96 py-4 opacity-100 bg-[#ff2a2a] shadow-2xl' : 'max-h-0 opacity-0 bg-transparent'
+          isOpen ? 'max-h-96 py-4 opacity-100 bg-[#00a2ff] shadow-2xl' : 'max-h-0 opacity-0 bg-transparent'
         }`}
       >
         <div className="flex flex-col px-6 space-y-4">
           {navLinks.map((link) => (
             <a 
-              key={link} 
-              href={`#${link.toLowerCase()}`}
+              key={link.label} 
+              href={link.path}
               onClick={() => setIsOpen(false)}
               className="text-white hover:text-black font-bold text-lg border-b border-white/20 pb-2 transition-colors"
             >
-              {link}
+              {link.label}
             </a>
           ))}
           <div className="pt-4 pb-2">
              <a 
                href={hireMeMailto}
                onClick={() => setIsOpen(false)} 
-               className="inline-block px-6 py-3 rounded-full bg-white text-[#ff2a2a] font-black hover:bg-black hover:text-white transition-colors w-full text-center shadow-lg"
+               className="inline-block px-6 py-3 rounded-full bg-white text-[#00a2ff] font-black hover:bg-black hover:text-white transition-colors w-full text-center shadow-lg"
              >
                Hire Me
              </a>
